@@ -67,7 +67,7 @@ module Faye
                       nil
 
           upgrade and upgrade =~ /^websocket$/i and
-          connection and connection.split(/\s*,\s*/).include?('Upgrade') and
+          connection and connection.downcase.split(/\s*,\s*/).include?('upgrade') and
           ((!@protocols and !protocol) or @protocol) and
           response['Sec-WebSocket-Accept'] == @accept
         end
